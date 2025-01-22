@@ -1,20 +1,36 @@
 # Splay
 ## Plan 
+Get the setup and understand the product.
 Fix a few issues.
-## Action Items
-- [ ] Complete local build
-- [ ] Understand usage 
-  - [ ] Fix file deletion
-  - [ ] Remove Question mark
+## Basic Action Items
+- [x] Complete local build
+- [x] Understand usage 
+  
+  - [x] Remove Question mark
     - https://github.com/yorukot/superfile/issues/112
-  - [ ] Unsupported file text shows with black color
-  - [ ] Try themes
-  - [ ] Try multi panels
+    - Install nerdfont and change font to nerd font in Iterm.
+  - [x] Try themes
+  - [x] Try multi panels
+  - [x] Try config files
+
+- [ ] Unsupported file text shows with black color
+- [ ] cd on quit
+- [ ] Fix file deletion 
+
+## Issues - Priority sorted
+- [ ] ASCII control characters breaking layout
+- [ ] Windows Operations
+  - [ ] Copy/Paste
+  - [ ] Deletion
+  - [ ] 'e' and 'E' keys
+- [ ] Use stat instead of exiftool
+- [ ] Open list of dir
+- [ ] Testcases
 
 # Windows Issues
 
 ### Action Items
-- [ ] Get windows running in a VM.
+- [x] Get windows running in a VM.
 
 ## Issue with Hyper terminal on windows 
 https://github.com/yorukot/superfile/issues/332
@@ -22,7 +38,8 @@ https://github.com/yorukot/superfile/issues/332
 
 ## Ctrl D not working
 https://github.com/yorukot/superfile/issues/380
-- [ ] Reproduce
+- [x] Reproduce
+- [ ] Fix
 
 ## display issue
 https://github.com/yorukot/superfile/issues/383
@@ -35,11 +52,16 @@ https://github.com/yorukot/superfile/issues/437
 
 ## Paste not working
 https://github.com/yorukot/superfile/issues/514
-- [ ] Reproduce
+https://github.com/yorukot/superfile/issues/552
+- [x] Reproduce
+- [ ] Fix
 
 ## Powershell and debian display issue
 https://github.com/yorukot/superfile/issues/544
 - [ ] Reproduce
+
+## Crash on wsl
+https://github.com/yorukot/superfile/issues/551
 
 # Non-Windows-specific Issues
 
@@ -49,7 +71,8 @@ https://github.com/yorukot/superfile/issues/74
 
 ## Focus_on_metadata hotkey doesn't work
 https://github.com/yorukot/superfile/issues/384
-- [ ] Reproduce
+- [x] Reproduce
+- [ ] See if it can be fixed
 
 ## ✅ Timezone issue
 https://github.com/yorukot/superfile/issues/434
@@ -107,6 +130,14 @@ https://github.com/yorukot/superfile/issues/449
 
 # Other ideas ( Not issues)
 
+## Load multiple directories in separate panes
+https://github.com/yorukot/superfile/issues/286
+
+## Use built-in unix command stat instead of exiftool 
+https://github.com/yorukot/superfile/issues/306
+
+
+
 ## Light and Dark theme option
 https://github.com/yorukot/superfile/issues/468
 
@@ -123,6 +154,27 @@ https://github.com/yorukot/superfile/issues/492
 
 
 # Usage and Setup
+
+## Build in windows
+- Install golang
+- Build
+```
+go build -o ./bin/spf.exe
+# Execute
+
+./bin/spf.exe
+```
+
+## Build in mac
+```
+➜  ~/Workspace/kuknitin/superfile git:(test) ✗ [12:44:51] ./build.sh
+➜  ~/Workspace/kuknitin/superfile git:(test) ✗ [12:45:02] ls -ltr ./bin/spf
+-rwxr-xr-x  1 kuknitin  staff  28244050 Jan 23 00:45 ./bin/spf
+➜  ~/Workspace/kuknitin/superfile git:(test) ✗ [12:45:04]
+```
+
+## Icon issue
+
 
 # References
 - Superfile Todo list - https://github.com/users/yorukot/projects/4

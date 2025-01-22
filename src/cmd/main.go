@@ -25,6 +25,7 @@ import (
 // Run superfile app
 func Run(content embed.FS) {
 
+
 	internal.LoadAllDefaultConfig(content)
 
 	app := &cli.App{
@@ -74,6 +75,7 @@ func Run(content embed.FS) {
 				path = c.Args().First()
 			}
 
+			
 			InitConfigFile()
 
 			err := InitTrash()
@@ -88,6 +90,8 @@ func Run(content embed.FS) {
 
 			firstUse := checkFirstUse()
 
+			log.Println("[CUST-LOG-P] Started spf on path", path)
+			
 			p := tea.NewProgram(internal.InitialModel(path, firstUse, hasTrash), tea.WithAltScreen(), tea.WithMouseCellMotion())
 			if _, err := p.Run(); err != nil {
 				log.Fatalf("Alas, there's been an error: %v", err)

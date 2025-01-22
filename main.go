@@ -2,7 +2,7 @@ package main
 
 import (
 	"embed"
-
+	"fmt"
 	cmd "github.com/yorukot/superfile/src/cmd"
 )
 
@@ -13,4 +13,5 @@ var (
 
 func main() {
 	cmd.Run(content)
+	fmt.Println("spf exiting happily")
 }
