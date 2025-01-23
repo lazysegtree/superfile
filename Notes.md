@@ -213,6 +213,9 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] Constants like "\n --- " + icon.Error + " Error open file ---" should be defined at one place
 - [ ] Better logging. And adding more logs in verbose mode to help debugging.
 
+## Testing
+- [ ] Use testify library
+
 # Usage and Setup
 
 ## Build in windows
