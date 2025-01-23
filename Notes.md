@@ -209,6 +209,7 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] "Handle message exchanging whithin the application"
 - [ ] "Write data to the path file if it does exists"
 - [ ] "check if the file is unsipported"
+- [ ] "Paste item function move file to trash can error"per
 
 ## Misc corner cases
 - [ ] string_funcion.isTextFile read a hard coded value of buffer 1024, this should be a defined constant
