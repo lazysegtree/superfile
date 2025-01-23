@@ -26,6 +26,7 @@ func initialConfig(dir string) (toggleDotFileBool bool, toggleFooter bool, first
 	if err != nil {
 		log.Fatalf("Error while opening superfile.log file: %v", err)
 	}
+	log.SetOutput(logOutput)
 
 	loadConfigFile()
 

@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"log"
 	"strconv"
 	"strings"
 
@@ -630,7 +631,10 @@ func (m model) filePreviewPanelRender() string {
 	}
 
 	format := lexers.Match(filepath.Base(itemPath))
+		
 	if format != nil {
+		log.Println("[model_render.filePreviewPanelRender] format is ", 
+			format.Config().Name)
 		var codeHighlight string
 		var err error
 		var fileContent string
@@ -674,7 +678,10 @@ func (m model) filePreviewPanelRender() string {
 
 		return box.Render(codeHighlight)
 	} else {
+
 		textFile, err := isTextFile(itemPath)
+		log.Println("[model_render.filePreviewPanelRender] textFile is ", 
+			textFile)
 		if err != nil {
 			outPutLog("Error check text file", err)
 		}

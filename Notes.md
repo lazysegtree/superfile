@@ -170,6 +170,18 @@ https://github.com/yorukot/superfile/issues/492
 
 ## No way to toggle the sidebar. 
 
+## Better error handling
+- [ ] os.Stat() call in checkFirstUse, writeConfigFile
+- [ ] err during InitTrash is not even logged. !!!!
+- [ ] default case in type switch in model.Update()
+
+## Comment typos
+- [ ] "Handle message exchanging whithin the application"
+- [ ] "Write data to the path file if it does exists"
+- [ ] "check if the file is unsipported"
+
+## Misc corner cases
+- [ ] string_funcion.isTextFile read a hard coded value of buffer 1024, this should be a defined constant
 
 # Usage and Setup
 
@@ -191,17 +203,15 @@ go build -o ./bin/spf.exe
 ➜  ~/Workspace/kuknitin/superfile git:(test) ✗ [12:45:04]
 ```
 
-## Icon issue
-
 # Implementation Notes
 
 ## Questions
 - [ ] What is TrashDirectories used for, and why not Mac has them.
-  - [ ] err during InitTrash is not even logged. !!!!
+  
 - [x] log.Fatalln bugs.
   - PR raised - https://github.com/yorukot/superfile/pull/555
 
-- 
+- [ ] Fix logging - setLogOutput early
 
 # References
 - Superfile Todo list - https://github.com/users/yorukot/projects/4

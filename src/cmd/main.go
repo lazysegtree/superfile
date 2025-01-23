@@ -74,9 +74,8 @@ func Run(content embed.FS) {
 			if c.Args().Present() {
 				path = c.Args().First()
 			}
-			
-			log.Println("[CUST-LOG-P - src/cmd/main.Run] Started spf on path", path, 
-				"\nruntime.GOOS is ", runtime.GOOS)			
+			log.Println("[CUST-LOG-P - cmd/main.Run] Started spf on path '", path, 
+				"', runtime.GOOS is ", runtime.GOOS)			
 			
 			InitConfigFile()
 
@@ -197,6 +196,11 @@ func createFiles(files ...string) error {
 func checkFirstUse() bool {
 	file := variable.FirstUseCheck
 	firstUse := false
+
+	// Any other error when doing os.Stat -> We keep firstUse as false, but we dont log the error.
+	// What could it be ? if not IsNotExist ?
+	// Permission issues, invalid path (code bug), Concurrent creation by file by other 
+	// process. 
 	if _, err := os.Stat(file); os.IsNotExist(err) {
 		firstUse = true
 		if err := os.WriteFile(file, nil, 0644); err != nil {
@@ -206,7 +210,7 @@ func checkFirstUse() bool {
 	return firstUse
 }
 
-// Write data to the path file if it exists
+// Write data to the path file if it does not exists
 func writeConfigFile(path, data string) error {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		if err := os.WriteFile(path, []byte(data), 0644); err != nil {
