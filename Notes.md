@@ -180,7 +180,10 @@ go build -o ./bin/spf.exe
 ## Questions
 - [ ] What is TrashDirectories used for, and why not Mac has them.
   - [ ] err during InitTrash is not even logged. !!!!
-- [ ] log.Fatalln bugs.
+- [x] log.Fatalln bugs.
+  - PR raised - https://github.com/yorukot/superfile/pull/555
+
+- 
 
 # References
 - Superfile Todo list - https://github.com/users/yorukot/projects/4
