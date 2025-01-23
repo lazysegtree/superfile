@@ -683,23 +683,23 @@ func (m model) filePreviewPanelRender() string {
 
 		codeHighlight = checkAndTruncateLineLengths(codeHighlight, m.fileModel.filePreview.width)
 
-		bytes_str := func (s string)(res string) {
-			res = "[ "
-			for i:=0; i<len(s); i++ {
-				res += fmt.Sprintf("%c ", s[i])
-			}
-			return res + " ]"
-		}
+		//bytes_str := func (s string)(res string) {
+		//	res = "[ "
+		//	for i:=0; i<len(s); i++ {
+		//		res += fmt.Sprintf("%c ", s[i])
+		//	}
+		//	return res + " ]"
+		//}
 
-		log.Printf("[model_render.filePreviewPanelRender] Sending %v(bytes = %v, bytes_str = %v, len = %v) to box.Render", 
-			codeHighlight, []byte(codeHighlight), bytes_str(codeHighlight), len(codeHighlight))
+		//log.Printf("[model_render.filePreviewPanelRender] Sending %v(bytes = %v, bytes_str = %v, len = %v) to box.Render", 
+		//	codeHighlight, []byte(codeHighlight), bytes_str(codeHighlight), len(codeHighlight))
 		
 		return box.Render(codeHighlight)
 	} else {
 
 		textFile, err := isTextFile(itemPath)
-		log.Println("[model_render.filePreviewPanelRender] textFile is ", 
-			textFile)
+		//log.Println("[model_render.filePreviewPanelRender] textFile is ", 
+		//	textFile)
 		if err != nil {
 			outPutLog("Error check text file", err)
 		}

@@ -219,6 +219,9 @@ https://github.com/yorukot/superfile/issues/492
 ## Testing
 - [ ] Use testify library
 
+## Performance Optimizations
+- [ ] model_render.filePreviewPanelRender being called 2-3 times per file
+
 # Usage and Setup
 
 ## Build in windows

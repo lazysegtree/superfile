@@ -3,6 +3,7 @@ package internal
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -54,9 +55,12 @@ func moveElement(src, dst string) error {
 
 	// If on the same partition, attempt to rename (which will use the same inode)
 	if sameDev {
+		log.Printf("[file_operations.moveElements] Trash directory and source on same partition. Renaming")
 		err := os.Rename(src, dst)
 		if err == nil {
 			return nil
+		} else {
+			log.Printf("[file_operations.moveElements] rename failed with error %v", err)	
 		}
 		// If rename fails, fall back to copy+delete
 	}
@@ -147,11 +151,13 @@ func trashMacOrLinux(src string) error {
 		err := moveElement(src, filepath.Join(variable.HomeDir, ".Trash", filepath.Base(src)))
 		if err != nil {
 			outPutLog("Delete single item function move file to trash can error", err)
+			return err
 		}
 	} else {
 		err := trash.Trash(src)
 		if err != nil {
 			outPutLog("Paste item function move file to trash can error", err)
+			return err
 		}
 	}
 	return nil
