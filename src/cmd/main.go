@@ -74,7 +74,9 @@ func Run(content embed.FS) {
 			if c.Args().Present() {
 				path = c.Args().First()
 			}
-
+			
+			log.Println("[CUST-LOG-P - src/cmd/main.Run] Started spf on path", path, 
+				"\nruntime.GOOS is ", runtime.GOOS)			
 			
 			InitConfigFile()
 
@@ -90,7 +92,6 @@ func Run(content embed.FS) {
 
 			firstUse := checkFirstUse()
 
-			log.Println("[CUST-LOG-P] Started spf on path", path)
 			
 			p := tea.NewProgram(internal.InitialModel(path, firstUse, hasTrash), tea.WithAltScreen(), tea.WithMouseCellMotion())
 			if _, err := p.Run(); err != nil {
@@ -144,6 +145,8 @@ func InitConfigFile() {
 	if err := writeConfigFile(variable.HotkeysFile, internal.HotkeysTomlString); err != nil {
 		log.Fatalln("Error writing config file:", err)
 	}
+	log.Println("[CUST-LOG-P - src/cmd/main.InitConfigFile] Finished config")
+			
 }
 
 func InitTrash() error {
