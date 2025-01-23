@@ -105,6 +105,27 @@ https://github.com/yorukot/superfile/issues/455
 https://github.com/yorukot/superfile/issues/495
 - [x] Reproduce
 - [ ] Fix
+  - Removing non Graphic characters is one way
+  - ranger seems to convert `\v` to newline , and print `\b` correctly 
+  - cat prints `\v` and `\b` correctly and doesn't cause any issues
+  - lf seems to just remove `\v` or `\b`
+    - Not always, see all_ctrl_char.txt (ctrl+j is four spaces, and ctrl+k is newline)
+  - mc fucking converts them to `.`. Damn.
+    - Not always, see all_ctrl_char.txt
+  - yazi replaces them to `^K` and `^H`.
+    - Not always. (all_ctrl_char.txt.go) 
+  - we can use `%q` -> But it adds quotes, and results in ugly output.
+  - nerd font does not have icons for ascii control characters
+  - Loss of info is okay. See cat for all_ctrl_char.txt
+
+- Caution
+  - Cant ignore \x09 - horizontal tab
+  - Cant ignore \x0a - line feed
+  - Ignore all else 
+  - Indistinguishable from vertical tab via unicode
+- References
+  -  Unicode IsGraphic and IsPrint, IsControl, IsSpace, https://pkg.go.dev/unicode
+  - https://www3.rocketsoftware.com/bluezone/help/v42/en/bzadmin/APPENDIX_C/ASCII_Character_Set.htm
 
 ## Option menu with two panels 
 https://github.com/yorukot/superfile/issues/497
@@ -183,7 +204,13 @@ https://github.com/yorukot/superfile/issues/492
 
 ## Misc corner cases
 - [ ] string_funcion.isTextFile read a hard coded value of buffer 1024, this should be a defined constant
+- [ ] ranger is able to detec a binary file renamed to .txt and not preview it.
+  - `file` command can too.
+  - `https://github.com/file-go/fil` - This go packet can do that too. Cross platform.
 
+## Refractoring
+- [ ] Code duplication in model_render.filePreviewPanelRender for text files.
+- [ ] Constants like "\n --- " + icon.Error + " Error open file ---" should be defined at one place
 # Usage and Setup
 
 ## Build in windows

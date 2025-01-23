@@ -10,6 +10,7 @@ import (
 	"log"
 	"strconv"
 	"strings"
+	"unicode"
 
 	"github.com/alecthomas/chroma/lexers"
 	"github.com/charmbracelet/lipgloss"
@@ -654,6 +655,12 @@ func (m model) filePreviewPanelRender() string {
 			if len(line) > maxLineLength {
 				line = line[:maxLineLength]
 			}
+			line = strings.Map(func(r rune) rune {
+				if unicode.IsGraphic(r) {
+					return r
+				}
+				return -1
+			}, line)
 			fileContent += line + "\n"
 			lineCount++
 			if previewLine > 0 && lineCount >= previewLine {
@@ -676,6 +683,17 @@ func (m model) filePreviewPanelRender() string {
 
 		codeHighlight = checkAndTruncateLineLengths(codeHighlight, m.fileModel.filePreview.width)
 
+		bytes_str := func (s string)(res string) {
+			res = "[ "
+			for i:=0; i<len(s); i++ {
+				res += fmt.Sprintf("%c ", s[i])
+			}
+			return res + " ]"
+		}
+
+		log.Printf("[model_render.filePreviewPanelRender] Sending %v(bytes = %v, bytes_str = %v, len = %v) to box.Render", 
+			codeHighlight, []byte(codeHighlight), bytes_str(codeHighlight), len(codeHighlight))
+		
 		return box.Render(codeHighlight)
 	} else {
 
