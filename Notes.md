@@ -44,7 +44,10 @@ Fix a few issues.
 | PR  | Status | Remarks |
 | ------------- | ------------- | ------------- |
 | https://github.com/yorukot/superfile/pull/555 | :mega: | Minor fix in log statements |
-| https://github.com/yorukot/superfile/pull/556 | :mega: | Fix in isTextFile check |
+| https://github.com/yorukot/superfile/pull/556 | :no_entry_sign: | Fix in isTextFile check(Changes will go in #557) |
+| https://github.com/yorukot/superfile/pull/557 | :mega: | Fix layout breaking and more improvements |
+
+
 
 # Windows Issues
 
