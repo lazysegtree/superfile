@@ -30,10 +30,15 @@ Fix a few issues.
 ## PRs
 
 :pencil2: Draft
-:mega: Raised(Pending approval)
+
+:mega: Raised(Pending Reviews)
+
 :electric_plug: Pending Review Fix
+
 :hourglass: Pending Merge (No AI on me)
+
 :white_check_mark: Merged
+
 :no_entry_sign: PR declined/abandoned
 
 | PR  | Status | Remarks |
