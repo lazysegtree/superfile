@@ -44,6 +44,7 @@ Fix a few issues.
 | PR  | Status | Remarks |
 | ------------- | ------------- | ------------- |
 | https://github.com/yorukot/superfile/pull/555 | :mega: | Minor fix in log statements |
+| https://github.com/yorukot/superfile/pull/556 | :mega: | Fix in isTextFile check |
 
 # Windows Issues
 
