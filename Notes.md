@@ -46,6 +46,7 @@ Fix a few issues.
 | https://github.com/yorukot/superfile/pull/555 | :mega: | Minor fix in log statements |
 | https://github.com/yorukot/superfile/pull/556 | :no_entry_sign: | Fix in isTextFile check(Changes will go in #557) |
 | https://github.com/yorukot/superfile/pull/557 | :mega: | Fix layout breaking and more improvements |
+| https://github.com/yorukot/superfile/pull/558 | :mega: | Fix in delete operation |
 
 
 
@@ -62,6 +63,10 @@ https://github.com/yorukot/superfile/issues/332
 https://github.com/yorukot/superfile/issues/380
 - [x] Reproduce
 - [ ] Fix
+  - Better to move file to recylce bin, not to local trash 
+    - https://github.com/hymkor/trash-go/blob/master/main_windows.go
+    - Or making https://github.com/rkoesters/xdg windows compatible .
+    - https://github.com/trubitsyn/go-recyclebin/blob/master/recyclebin_windows.go
 
 ## display issue
 https://github.com/yorukot/superfile/issues/383
