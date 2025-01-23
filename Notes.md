@@ -27,6 +27,19 @@ Fix a few issues.
 - [ ] Open list of dir
 - [ ] Testcases
 
+## PRs
+
+:pencil2: Draft
+:mega: Raised(Pending approval)
+:electric_plug: Pending Review Fix
+:hourglass: Pending Merge (No AI on me)
+:white_check_mark: Merged
+:no_entry_sign: PR declined/abandoned
+
+| PR  | Status |
+| ------------- | ------------- |
+| https://github.com/yorukot/superfile/pull/555 | :mega: |
+
 # Windows Issues
 
 ### Action Items
