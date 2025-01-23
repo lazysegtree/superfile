@@ -36,9 +36,9 @@ Fix a few issues.
 :white_check_mark: Merged
 :no_entry_sign: PR declined/abandoned
 
-| PR  | Status |
-| ------------- | ------------- |
-| https://github.com/yorukot/superfile/pull/555 | :mega: |
+| PR  | Status | Remarks |
+| ------------- | ------------- | ------------- |
+| https://github.com/yorukot/superfile/pull/555 | :mega: | Minor fix in log statements |
 
 # Windows Issues
 
