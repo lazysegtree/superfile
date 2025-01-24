@@ -215,6 +215,8 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] spf used to freeze for .pdf and  .pptx, any other extension it could freeze ?
 - [ ] Processes sometimes just get stuck forever (ex : copy and paste in windows at this point of commit).
 
+- [ ] More resiliency in case of config file / log file cant be opened/created.
+
 ## Refractoring
 - [ ] Code duplication in model_render.filePreviewPanelRender for text files.
 - [ ] Constants like "\n --- " + icon.Error + " Error open file ---" should be defined at one place
@@ -223,6 +225,7 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] key_functions.mainKey() indentation fix
 
 - [ ] Better logging. And adding more logs in verbose mode to help debugging.
+  - [ ] Incosistence use of fmt.Println and logging .
 - [ ] .pdf hardcoded as unsupported extension
 - [ ] float64(fileInfo.Size())/(1024*1024) < 250
 - [ ] Hardcoded buffer size 1024 at many places
