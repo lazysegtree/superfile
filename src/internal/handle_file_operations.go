@@ -3,10 +3,10 @@ package internal
 import (
 	"os"
 	"os/exec"
-	"path"
 	"path/filepath"
 	"strings"
 	"time"
+	"log"
 
 	"github.com/atotto/clipboard"
 	"github.com/charmbracelet/bubbles/progress"
@@ -368,46 +368,77 @@ func (m model) completelyDeleteMultipleItems() {
 	panel.selected = panel.selected[:0]
 }
 
+//func (m* model) copySingleItem() {
+//	err := m.copySingleItemCore()
+//	if err != nil {
+//		log.Printf("Error during copySingleItem()%v", err)
+//	}
+//}
+
 // Copy directory or file
 func (m *model) copySingleItem() {
 	panel := m.fileModel.filePanels[m.filePanelFocusIndex]
+	
+	log.Printf("[handle_file_operations.copySingleItem] items : %v", 
+		m.copyItems.items)
+
 	m.copyItems.cut = false
 	m.copyItems.items = m.copyItems.items[:0]
 	if len(panel.element) == 0 {
 		return
 	}
+
+	log.Printf("[handle_file_operations.copySingleItem] panel location : %v", 
+		panel.element[panel.cursor].location)
+	
 	m.copyItems.items = append(m.copyItems.items, panel.element[panel.cursor].location)
 	fileInfo, err := os.Stat(panel.element[panel.cursor].location)
+	
+	// What is this ??
 	if os.IsNotExist(err) {
 		m.copyItems.items = m.copyItems.items[:0]
-		return
 	}
 	if err != nil {
 		outPutLog("Copy single item get file state error", panel.element[panel.cursor].location, err)
+		return
 	}
 
 	if !fileInfo.IsDir() && float64(fileInfo.Size())/(1024*1024) < 250 {
 		fileContent, err := os.ReadFile(panel.element[panel.cursor].location)
 
+		log.Printf("[handle_file_operations.copySingleItem] fileContent size : %v", 
+			len(fileContent))
 		if err != nil {
 			outPutLog("Copy single item read file error", panel.element[panel.cursor].location, err)
+			return 
 		}
 
-		if err := clipboard.WriteAll(string(fileContent)); err != nil {
-			outPutLog("Copy single item write file error", panel.element[panel.cursor].location, err)
-		}
+		
+
+		//if err := clipboard.WriteAll(string(fileContent)); err != nil {
+		//	outPutLog("Copy single item write file error", panel.element[panel.cursor].location, err)
+		//	return 
+		//}
 	}
 	m.fileModel.filePanels[m.filePanelFocusIndex] = panel
+	s,_ := clipboard.ReadAll()
+	log.Printf("[handle_file_operations.copySingleItem] clipboard sz : %v", 
+		len(s))
+
 }
 
 // Copy all selected file or directory to the clipboard
 func (m *model) copyMultipleItem() {
+	log.Printf("[handle_file_operations.copyMultipleItem] items : %v", 
+		m.copyItems.items)
 	panel := m.fileModel.filePanels[m.filePanelFocusIndex]
 	m.copyItems.cut = false
 	m.copyItems.items = m.copyItems.items[:0]
 	if len(panel.selected) == 0 {
 		return
 	}
+	log.Printf("[handle_file_operations.copyMultipleItem] panel selected files : %v", 
+		panel.selected)
 	m.copyItems.items = panel.selected
 	fileInfo, err := os.Stat(panel.selected[0])
 	if os.IsNotExist(err) {
@@ -415,6 +446,7 @@ func (m *model) copyMultipleItem() {
 	}
 	if err != nil {
 		outPutLog("Copy multiple item function get file state error", panel.selected[0], err)
+		return
 	}
 
 	if !fileInfo.IsDir() && float64(fileInfo.Size())/(1024*1024) < 250 {
@@ -422,13 +454,19 @@ func (m *model) copyMultipleItem() {
 
 		if err != nil {
 			outPutLog("Copy multiple item function read file error", err)
+			return
 		}
 
 		if err := clipboard.WriteAll(string(fileContent)); err != nil {
 			outPutLog("Copy multiple item function write file to clipboard error", err)
+			return
 		}
 	}
 	m.fileModel.filePanels[m.filePanelFocusIndex] = panel
+
+	s,_ := clipboard.ReadAll()
+	log.Printf("[handle_file_operations.copySingleItem] clipboard sz : %v", 
+		len(s))
 }
 
 // Cut directory or file
@@ -503,6 +541,8 @@ func (m model) pasteItem() {
 		return
 	}
 
+
+
 	totalFiles := 0
 
 	for _, folderPath := range m.copyItems.items {
@@ -512,6 +552,9 @@ func (m model) pasteItem() {
 		}
 		totalFiles += count
 	}
+
+	log.Printf("[handle_file_operations.pasteItem] items : %v, totalFiles : %v", 
+		m.copyItems.items, totalFiles)
 
 	prog := progress.New(generateGradientColor())
 	prog.PercentageStyle = footerStyle
@@ -541,6 +584,9 @@ func (m model) pasteItem() {
 
 	p := m.processBarModel.process[id]
 	for _, filePath := range m.copyItems.items {
+		log.Printf("[handle_file_operations.pasteItem] filePath : %v, base : %v, panel location : %v", 
+			filePath, filepath.Base(filePath), panel.location)
+
 		var err error
 		if m.copyItems.cut && !isExternalDiskPath(filePath) {
 			p.name = icon.Cut + icon.Space + filepath.Base(filePath)
@@ -553,10 +599,11 @@ func (m model) pasteItem() {
 
 		errMessage := "cut item error"
 		if m.copyItems.cut && !isExternalDiskPath(filePath) {
-			err = moveElement(filePath, filepath.Join(panel.location, path.Base(filePath)))
+			err = moveElement(filePath, filepath.Join(panel.location, filepath.Base(filePath)))
 		} else {
-			newModel, err := pasteDir(filePath, filepath.Join(panel.location, path.Base(filePath)), id, m)
+			newModel, err := pasteDir(filePath, filepath.Join(panel.location, filepath.Base(filePath)), id, m)
 			if err != nil {
+				log.Printf("[handle_file_operations.pasteItem] pasteDir() failed with err : %v", err)
 				errMessage = "paste item error"
 			}
 			m = newModel
@@ -574,6 +621,14 @@ func (m model) pasteItem() {
 			break
 		}
 	}
+
+	// err != nil should be checked here too
+	if p.state == failure {
+		return
+	}
+
+	log.Printf("[handle_file_operations.pasteItem] pasteDir() successful")
+				
 
 	p.state = successful
 	p.done = totalFiles

@@ -1,7 +1,9 @@
 package internal
 
-import tea "github.com/charmbracelet/bubbletea"
-
+import (
+	"log"
+	tea "github.com/charmbracelet/bubbletea"
+)
 func containsKey(v string, a []string) string {
 	for _, i := range a {
 		if i == v {
@@ -15,6 +17,7 @@ func containsKey(v string, a []string) string {
 // keys that performs actions in multiple panels, like going up or down,
 // check the state of model m and handle properly.
 func (m *model) mainKey(msg string, cmd tea.Cmd) ( tea.Cmd) {
+	log.Printf("[key_function.mainKey] msg = %v, m.focusPanel = %v", msg, m.focusPanel)
 	switch msg {
 
     // If move up Key is pressed, check the current state and executes

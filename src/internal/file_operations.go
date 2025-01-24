@@ -165,6 +165,8 @@ func trashMacOrLinux(src string) error {
 
 // pasteDir handles directory copying with progress tracking
 func pasteDir(src, dst string, id string, m model) (model, error) {
+	log.Printf("[file_operations.pasteDir] src, dst, id : %v, %v, %v", 
+		src, dst, id)
 	dst, err := renameIfDuplicate(dst)
 	if err != nil {
 		return m, err

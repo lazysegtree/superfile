@@ -7,7 +7,6 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
-	"log"
 	"strconv"
 	"strings"
 	"unicode"
@@ -634,8 +633,8 @@ func (m model) filePreviewPanelRender() string {
 	format := lexers.Match(filepath.Base(itemPath))
 		
 	if format != nil {
-		log.Println("[model_render.filePreviewPanelRender] format is ", 
-			format.Config().Name)
+		// log.Println("[model_render.filePreviewPanelRender] format is ", 
+		// 	format.Config().Name)
 		var codeHighlight string
 		var err error
 		var fileContent string

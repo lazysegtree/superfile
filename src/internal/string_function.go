@@ -3,7 +3,7 @@ package internal
 import (
 	"bufio"
 	"fmt"
-	"log"
+	//"log"
 	"math"
 	"os"
 	"strings"
@@ -154,18 +154,18 @@ func isTextFile(filename string) (bool, error) {
 	reader := bufio.NewReader(file)
 	buffer := make([]byte, 1024)
 	cnt, err := reader.Read(buffer)
-	log.Printf("[string_function.isTextFile] read %v bytes, %v", cnt, buffer[:cnt])
+	//log.Printf("[string_function.isTextFile] read %v bytes, %v", cnt, buffer[:cnt])
 	if err != nil {
 		return false, err
 	}
 
-	for i, b := range buffer {
+	for _, b := range buffer[:cnt] {
 		if b == 0 {
-			log.Printf("[string_function.isTextFile] b[%v] is 0 in file, hence not text file", i)
+			//log.Printf("[string_function.isTextFile] b[%v] is 0 in file, hence not text file", i)
 			return false, nil
 		}
 		if !unicode.IsPrint(rune(b)) && !unicode.IsSpace(rune(b)) {
-			log.Printf("[string_function.isTextFile] b[%v]=%v is not pritiable in file, hence not text file", i, b)
+			//log.Printf("[string_function.isTextFile] b[%v]=%v is not pritiable in file, hence not text file", i, b)
 			return false, nil
 		}
 	}

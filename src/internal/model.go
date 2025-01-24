@@ -177,6 +177,9 @@ func (m *model) setHelpMenuSize() {
 // Identify the current state of the application m and properly handle the
 // msg keybind pressed
 func (m model) handleKeyInput(msg tea.KeyMsg, cmd tea.Cmd) (model, tea.Cmd) {
+	log.Printf("[model.handleKeyInput] msg = %v, typestr = %v, runes = %v, type = %d, paste=%v, alt=%v", 
+		msg, msg.Type.String(), msg.Runes, msg.Type, msg.Paste, msg.Alt)
+	//tea.KeyCtrlM
 	if firstUse {
 		firstUse = false
 		return m, cmd
@@ -271,6 +274,8 @@ func (m *model) warnModalForQuit() {
 
 // Implement View function for bubble tea model to handle visualization.
 func (m model) View() string {
+	// This gets called a lot
+	// log.Println("[model.View] Beginning view")
 	panel := m.fileModel.filePanels[m.filePanelFocusIndex]
 	// check is the terminal size enough
 	if m.fullHeight < minimumHeight || m.fullWidth < minimumWidth {
