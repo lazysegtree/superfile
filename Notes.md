@@ -228,6 +228,9 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] Hardcoded buffer size 1024 at many places
 - [ ] Duplicacy in file_operations.pasteDir and file_operations.moveElement
   - [ ] pastDir is basicall .moveElements + directory support.
+     
+- [ ] Restrcuturing code into file names with more meaning
+  - [ ] Putting utils from function.go, string_functions.go to internal/utils/ 
 
 ## Testing
 - [ ] Use testify library
