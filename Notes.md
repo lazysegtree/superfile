@@ -15,7 +15,11 @@ Fix a few issues.
 
 - [ ] Unsupported file text shows with black color
 - [ ] cd on quit
-- [ ] Fix file deletion 
+- [ ] Fix file deletion
+
+Learning
+- [ ] Understand more about bubble tea, event loop, what update functions are called, etc. This issue was hard to work on - https://github.com/yorukot/superfile/issues/567
+- [ ] Read goroutines, channels
 
 ## Issues - Priority sorted
 
@@ -238,6 +242,7 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] panel.element[panel.cursor].location replace with pLocation 
 
 - [ ] Use go lint and other tools and find more improvements.
+- [ ] Model functions are all scattered, and hard to figure out which file has what
 
 ## Testing
 - [ ] Use testify library
@@ -279,6 +284,9 @@ go build -o ./bin/spf.exe
   - PR raised - https://github.com/yorukot/superfile/pull/555
 
 - [ ] Fix logging - setLogOutput early
+
+### How tf search bar works
+- I see that after searchBar is `Focussed`, then the key press are just ignored as per the code.
 
 # References
 - Superfile Todo list - https://github.com/users/yorukot/projects/4
