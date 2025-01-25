@@ -73,6 +73,7 @@ func (m *model) sidebarRender() string {
 	return sideBarBorderStyle(m.mainPanelHeight, m.focusPanel).Render(s)
 }
 
+// This also modifies the m.fileModel.filePanels
 func (m *model) filePanelRender() string {
 	// file panel
 	f := make([]string, 10)
@@ -274,6 +275,7 @@ func (m *model) processBarRender() string {
 	return processRender
 }
 
+// This updates m.fileMetaData 
 func (m *model) metadataRender() string {
 	// process bar
 	metaDataBar := ""
@@ -337,8 +339,6 @@ func (m *model) clipboardRender() string {
 	if len(m.copyItems.items) == 0 {
 		clipboardRender += "\n " + icon.Error + "  No content in clipboard"
 	} else {
-
-		outPutLog("[temp] clipboardRender() m.copyItems.items, len : ", len(m.copyItems.items), " addres ", &(m.copyItems.items[0]))
 		for i := 0; i < len(m.copyItems.items) && i < bottomElementHeight(footerHeight); i++ {
 			if i == bottomElementHeight(footerHeight)-1 {
 				clipboardRender += strconv.Itoa(len(m.copyItems.items)-i+1) + " item left...."

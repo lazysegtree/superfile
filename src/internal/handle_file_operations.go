@@ -516,18 +516,11 @@ func (m *model) pasteItem() {
 	channel <- message
 
 	m.processBarModel.process[id] = p
-	
-	slog.Debug("[temp]before reset", "copyItems", m.copyItems.items)
-	outPutLog("[temp] before reset, addres ", &(m.copyItems.items[0]))	
-
-	// reset after paste is done. Only in case of cut. set cut to false clear items slice. 
-	// The current items in clipboard are anyways deleted now
+	// Reset after paste is done. Only in case of cut  
+	// because current items in clipboard are deleted now
 	if m.copyItems.cut {
 		m.copyItems.reset(false)
 	}
-	slog.Debug("[temp]after reset", "copyItems", m.copyItems.items)
-
-
 }
 
 // Extrach compress file

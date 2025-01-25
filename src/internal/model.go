@@ -51,10 +51,6 @@ func (m model) Init() tea.Cmd {
 // Update function for bubble tea to provide internal communication to the
 // application
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
-
-	outPutLog("[temp] start of Update", "copyItems", m.copyItems.items)
-	
-
 	var cmd tea.Cmd
 
 	switch msg := msg.(type) {
@@ -77,9 +73,6 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	}
 
 	m.getFilePanelItems()
-
-	outPutLog("[temp] end of Update", "copyItems", m.copyItems.items)
-	
 
 	return m, tea.Batch(cmd)
 }
@@ -200,9 +193,6 @@ func (m *model) handleKeyInput(msg tea.KeyMsg, cmd tea.Cmd) tea.Cmd {
 		"focusPanel", m.focusPanel,
 	)
 
-	outPutLog("[temp] start of handleKeyInput", "copyItems", m.copyItems.items)
-	
-
 	if firstUse {
 		firstUse = false
 		return cmd
@@ -248,7 +238,6 @@ func (m *model) handleKeyInput(msg tea.KeyMsg, cmd tea.Cmd) tea.Cmd {
 		// Handles general kinds of inputs in the regular state of the application
 		cmd = m.mainKey(msg.String(), cmd)
 	}
-	outPutLog("[temp] end of handleKeyInput", "copyItems", m.copyItems.items)
 	return cmd
 }
 
@@ -298,10 +287,6 @@ func (m *model) warnModalForQuit() {
 
 // Implement View function for bubble tea model to handle visualization.
 func (m model) View() string {
-
-	outPutLog("[temp] start of View", "copyItems", m.copyItems.items)
-	defer func(m* model){outPutLog("[temp] end of View", "copyItems", m.copyItems.items)}(&m)
-
 	panel := m.fileModel.filePanels[m.filePanelFocusIndex]
 	// check is the terminal size enough
 	if m.fullHeight < minimumHeight || m.fullWidth < minimumWidth {
