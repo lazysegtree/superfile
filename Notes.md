@@ -220,6 +220,7 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] Processes sometimes just get stuck forever (ex : copy and paste in windows at this point of commit).
 - [ ] Buggy behaviour when you search for a file(not existing), then press enter(no result), then used down/back keys.
 - [ ] More resiliency in case of config file / log file cant be opened/created.
+- [ ] Copy paste on same dir, should cause new file with  (1) (2) appended to name and so one, but what if files is file(5) . Then it should do file(5)(1), not file(6)
 
 ## Refractoring
 - [ ] Code duplication in model_render.filePreviewPanelRender for text files.
