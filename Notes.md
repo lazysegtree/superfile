@@ -233,7 +233,9 @@ https://github.com/yorukot/superfile/issues/492
   - [ ] pastDir is basicall .moveElements + directory support.
      
 - [ ] Restrcuturing code into file names with more meaning
-  - [ ] Putting utils from function.go, string_functions.go to internal/utils/ 
+  - [ ] Putting utils from function.go, string_functions.go to internal/utils/
+
+- [ ] panel.element[panel.cursor].location replace with pLocation 
 
 ## Testing
 - [ ] Use testify library
