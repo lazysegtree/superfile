@@ -15,6 +15,8 @@ func containsKey(v string, a []string) string {
 // keys that performs actions in multiple panels, like going up or down,
 // check the state of model m and handle properly.
 func (m *model) mainKey(msg string, cmd tea.Cmd) ( tea.Cmd) {
+	outPutLog("[temp] starting mainKey", "copyItems", m.copyItems.items)
+	defer func(m* model){outPutLog("[temp] after2 mainKey", "copyItems", m.copyItems.items)}(m)
 	switch msg {
 
     // If move up Key is pressed, check the current state and executes
@@ -89,6 +91,7 @@ func (m *model) mainKey(msg string, cmd tea.Cmd) ( tea.Cmd) {
 		go func() {
 			m.pasteItem()
 		}()
+		outPutLog("[temp] after containsKey(paste)", "copyItems", m.copyItems.items)
 
 	case containsKey(msg, hotkeys.FilePanelItemCreate):
 		m.panelCreateNewFile()
@@ -132,7 +135,7 @@ func (m *model) mainKey(msg string, cmd tea.Cmd) ( tea.Cmd) {
 	default:
 		m.normalAndBrowserModeKey(msg)
 	}
-
+	outPutLog("[temp] after1 mainKey", "copyItems", m.copyItems.items)
 	return cmd
 }
 

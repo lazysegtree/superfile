@@ -516,7 +516,12 @@ func (m *model) pasteItem() {
 	m.processBarModel.process[id] = p
 	// reset after paste is done. set cut to false clear items slice. 
 	// The current items in clipboard are anyways deleted now
+	slog.Debug("[temp]before reset", "copyItems", m.copyItems.items)
+	outPutLog("[temp] before reset, addres ", &(m.copyItems.items[0]))	
 	m.copyItems.reset(false)
+	slog.Debug("[temp]after reset", "copyItems", m.copyItems.items)
+
+
 }
 
 // Extrach compress file
