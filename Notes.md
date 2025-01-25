@@ -237,10 +237,13 @@ https://github.com/yorukot/superfile/issues/492
 
 - [ ] panel.element[panel.cursor].location replace with pLocation 
 
+- [ ] Use go lint and other tools and find more improvements.
+
 ## Testing
 - [ ] Use testify library
 
 ## Performance Optimizations
+- [ ] Do profiling on the app before perf improvements
 - [ ] model_render.filePreviewPanelRender being called 2-3 times per file
 - [ ] File copying via os syscalls not via clipboard
 - [ ] Needless clipboard usage in case of multi file copy
