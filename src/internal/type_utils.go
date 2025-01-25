@@ -10,6 +10,17 @@ func (c *copyItems) reset(cut bool) {
 	c.items = c.items[:0]
 }
 
+func (c *copyItems) resetCopy(cut bool) {
+	if c.cut {
+		cut = false
+	
+	} else {
+
+	}
+	c.cut = cut
+	c.items = c.items[:0]
+}
+
 // String method for easy logging
 // This doesn't incur any performance overhead
 // String() is only used explicitly or via %v/%s formatting verb
