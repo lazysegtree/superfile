@@ -496,6 +496,8 @@ func (m *model) pasteItem() {
 		}
 		p = m.processBarModel.process[id]
 		if err != nil {
+			slog.Debug("model.pasteItem - paste failure", "error", err,
+				"current item", filePath, "errMessage", errMessage)
 			p.state = failure
 			message.processNewState = p
 			channel <- message
