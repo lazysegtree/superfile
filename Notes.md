@@ -139,6 +139,13 @@ https://github.com/yorukot/superfile/issues/542
 - [ ] Reproduce
   - Couldnt' - waiting for responses.
 
+## Race condition due to goroutines and due to model being passed as value
+https://github.com/yorukot/superfile/issues/571
+- assume cut & paste call takes time, and it happens after Update() has been finished.
+m.copyItems would not get clear in pasteItems. But next Update() would use a new 'm' with original m.copyItems.
+- I might need more knowledge on goroutines and bubbletea event loop to solve it in the best way.
+
+
 ---------------------------------------------------------------------------------------------
 # Setup issues
 
