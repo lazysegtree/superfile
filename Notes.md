@@ -245,6 +245,7 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] File copying via os syscalls not via clipboard
 - [ ] Needless clipboard usage in case of multi file copy
 - [ ] Avoid copying of model, filePanel structs. 10K bytes per struct.
+  - [ ] Even assigning it to local variables is bad.
 
 # Usage and Setup
 
