@@ -214,7 +214,7 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] Ctrl + p behaviour in case we have multiple files selected via 'v' mode. Right now, only one file's path gets copied.
 - [ ] spf used to freeze for .pdf and  .pptx, any other extension it could freeze ?
 - [ ] Processes sometimes just get stuck forever (ex : copy and paste in windows at this point of commit).
-
+- [ ] Buggy behaviour when you search for a file(not existing), then press enter(no result), then used down/back keys.
 - [ ] More resiliency in case of config file / log file cant be opened/created.
 
 ## Refractoring
