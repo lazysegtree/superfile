@@ -254,6 +254,8 @@ https://github.com/yorukot/superfile/issues/492
 
 ## Testing
 - [ ] Use testify library
+- [ ] For testing we can keel all the file operations into a abstraction layer. And mock that in testcases, using some in memory file system or something.
+- [ ] We could mock 'tea' for tests, and call model.Update, model.View in tests cases, and exepect things.
 
 ## Performance Optimizations
 - [ ] Do profiling on the app before perf improvements
