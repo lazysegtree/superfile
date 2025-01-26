@@ -51,7 +51,8 @@ Learning
 | https://github.com/yorukot/superfile/pull/555 | :white_check_mark: | Minor fix in log statements |
 | https://github.com/yorukot/superfile/pull/556 | :no_entry_sign: | Fix in isTextFile check(Changes will go in #557) |
 | https://github.com/yorukot/superfile/pull/557 | :white_check_mark: | Fix layout breaking and more improvements |
-| https://github.com/yorukot/superfile/pull/558 | :white_check_mark: | Fix in delete operation |
+| https://github.com/yorukot/superfile/pull/558 | :white_check_mark: | Minor Fix in delete operation |
+| https://github.com/yorukot/superfile/pull/564 | :white_check_mark: | Fix bugs, refactoring and improvements |
 
 ## Issues helped with (No PRs)
 
