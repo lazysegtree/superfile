@@ -256,6 +256,11 @@ https://github.com/yorukot/superfile/issues/492
 - [ ] Use testify library
 - [ ] For testing we can keel all the file operations into a abstraction layer. And mock that in testcases, using some in memory file system or something.
 - [ ] We could mock 'tea' for tests, and call model.Update, model.View in tests cases, and exepect things.
+- [ ] For us to be able to structure tests across files correctly , the code has to be structed well too. Huge refractoring
+- [ ] Need to mock filesystem for all operations - Copy/Paste/Stat/Walk/Recycle Bin, etc..
+- [ ] We could make internal.Model a interface, and mock it in tests - We could verify some functionalities of the layer above our model ( tea )
+
+- [ ] And I need to be ready too, I need more theoritical go expertise, understanding of go routines, need to check out how testing is implemented on other projects. And I also need more experience and understanding of the codebase, to be able to refractor and test well.  
 
 ## Performance Optimizations
 - [ ] Do profiling on the app before perf improvements
