@@ -262,6 +262,36 @@ https://github.com/yorukot/superfile/issues/492
 
 - [ ] And I need to be ready too, I need more theoritical go expertise, understanding of go routines, need to check out how testing is implemented on other projects. And I also need more experience and understanding of the codebase, to be able to refractor and test well.  
 
+## Test suite 
+Cross platform suite (in go or python), that actually tests spf by running it, opposed to tests cases. We should be able run it in Windows, MacOS and Linux. It would create files and directories, start spf binary and send input keys and validate behaviour.
+
+- We would specify the initially directory setup via json, or via python code with custom classes File, Directory, FileSystem, etc
+- We could create an in memory filesystem and validate behaviour are same. Or hard code the operations and expected result. Or we would do the operation on same filesystem, just in a different directory, and then validate that super's directory is also exact same.
+
+- Need to figure out the best way to do this by utilizing existing tools
+  - Python a good choice because of huge library availibility.
+  - Can try to check if there are any existing such suites
+
+- Can Validate 
+  - create, remname, copy, paste, cut, commmand, search, compress, extract, delete
+  - Superfile does not crashes on previewing files.
+  - Validate that navigation works by sending the currently selected item to clipboard
+  - Validate new panel creation and movement between panels
+  - Validate sorting
+  - Validate toggling . files, and
+  - Copy path / pwd
+  - Validate multi select mode
+  - Validate cancel typing key works.
+  - Vaidate Select All 
+  - Validate directory pinning(?)
+- Can we read the spf rendered output ? 
+  - Can validate metadata, clipboard, file panel, preview panel, sidebar rendering.
+- Validate no crash for - large files
+- Performance test 
+  - file ops on huge directories, navigation through lots of files .
+  - Can we measure time well, will most of time be spent in input, issues due to too fast input keys?
+
+
 ## Performance Optimizations
 - [ ] Do profiling on the app before perf improvements
 - [ ] model_render.filePreviewPanelRender being called 2-3 times per file
