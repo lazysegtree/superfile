@@ -118,13 +118,18 @@ https://github.com/yorukot/superfile/issues/551
 https://github.com/yorukot/superfile/issues/74
 - [ ] Reproduce
 
-## Focus_on_metadata hotkey doesn't work
+
+
+## ✅ Focus_on_metadata hotkey doesn't work
 https://github.com/yorukot/superfile/issues/384
 - [x] Reproduce
-- [ ] See if it can be fixed
-- [ ] Check issue in windows and linux
-- [ ] Do doc update
+- [x] See if it can be fixed
+- [x] Check issue in windows and linux
+- [x] Do doc update
 
+## ✅ Timezone issue
+https://github.com/yorukot/superfile/issues/434
+- Not a bug
 ## Freeze 
 https://github.com/yorukot/superfile/issues/455
 - Asked about reproduction of issue
@@ -349,7 +354,7 @@ Information about stuff that is not needed anymore
 ## ✅ Display issue due to text Files with control characters
 https://github.com/yorukot/superfile/issues/495
 - [x] Reproduce
-- [ ] Fix
+- [x] Fix
   - Removing non Graphic characters is one way
   - ranger seems to convert `\v` to newline , and print `\b` correctly 
   - cat prints `\v` and `\b` correctly and doesn't cause any issues
@@ -377,10 +382,6 @@ https://github.com/yorukot/superfile/issues/495
 ## ✅ Not working in termux
 https://github.com/yorukot/superfile/issues/538
 - Not a bug. It works.
-
-## ✅ Timezone issue
-https://github.com/yorukot/superfile/issues/434
-- Not a bug
 
 ## ✅ Icon not working
 https://github.com/yorukot/superfile/issues/465
