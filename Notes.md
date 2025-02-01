@@ -330,6 +330,7 @@ go build -o ./bin/spf.exe
 
 # Implementation Notes
 - File and directory opening via e and E are handled in handle_file_operations - openFileWithEditor / openDirectoryWithEditor
+- File open via right arrow is in `enterPanel` in handle_panel_movements
 
 ## Questions
 - [ ] What is TrashDirectories used for, and why not Mac has them.
