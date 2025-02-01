@@ -329,6 +329,7 @@ go build -o ./bin/spf.exe
 ```
 
 # Implementation Notes
+- File and directory opening via e and E are handled in handle_file_operations - openFileWithEditor / openDirectoryWithEditor
 
 ## Questions
 - [ ] What is TrashDirectories used for, and why not Mac has them.
