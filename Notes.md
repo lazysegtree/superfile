@@ -55,8 +55,8 @@ Learning
 | https://github.com/yorukot/superfile/pull/564 | :white_check_mark: | (Big)Fix bugs, refactoring and improvements |
 | https://github.com/yorukot/superfile/pull/581 | :white_check_mark: | (Big)Add testsuite |
 | https://github.com/yorukot/superfile/pull/583 | :white_check_mark: | Windows build instructions
-| https://github.com/yorukot/superfile/pull/584 | :mega: | Fix windows delete |
-
+| https://github.com/yorukot/superfile/pull/584 | :white_check_mark: | (Big) Fix windows delete |
+| https://github.com/yorukot/superfile/pull/589 | :mega: | (Medium) File panel rendering improvements |
 ## Issues helped with (No PRs)
 
 | Issue  | Summary | Status | Remarks |
